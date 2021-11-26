@@ -29,14 +29,32 @@ public class Main {
 //        hen1.join();
 
 
-        System.out.println("Main thread started");
+       /* System.out.println("Main thread started");
         CustomerThread customerThread = new CustomerThread();
         new Thread(customerThread, "CustomerThread").start();
         Thread.sleep(2000);
         System.out.println(Thread.currentThread().getName());
         customerThread.disable();
         Thread.sleep(1000);
-        System.out.println("Main thread finished");
+        System.out.println("Main thread finished");*/
+
+        // создаем товар
+        Goods goods1 = new Goods("g1",1000);
+        Goods goods2 = new Goods("g2",2000);
+        Goods goods3 = new Goods("g3",3000);
+        Goods goods4 = new Goods("g4",4000);
+
+        new Thread(goods1,"Good #1").start();
+        new Thread(goods2,"Good #2").start();
+        new Thread(goods3,"Good #3").start();
+        new Thread(goods4,"Good #4").start();
+
+        Storage storage=new Storage(goods1,goods2,goods3,goods4);
+        new Thread(storage,"Storage").start();
+
+
+
+
 
 
 
