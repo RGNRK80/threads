@@ -30,10 +30,11 @@ public class Storage implements Runnable {
 
         while (isActive) {
             System.out.println();
+            System.out.print("Storage: ");
             System.out.print(goods1.getGood() + ": " + goods1.getStorage() + " units.");
             System.out.print(goods2.getGood() + ": " + goods2.getStorage() + " units.");
-            System.out.print(goods2.getGood() + ": " + goods2.getStorage() + " units.");
-            System.out.print(goods2.getGood() + ": " + goods2.getStorage() + " units.");
+            System.out.print(goods2.getGood() + ": " + goods3.getStorage() + " units.");
+            System.out.print(goods2.getGood() + ": " + goods4.getStorage() + " units.");
 
             try {
                 Thread.sleep((long) (1000));
@@ -41,7 +42,13 @@ public class Storage implements Runnable {
                 e.printStackTrace();
             }
         }
-        System.out.println("sorage is closed");
+        System.out.println();
+        System.out.println("storage is closed");
+        System.out.println("leftovers in the warehouse:");
+        System.out.print(goods1.getGood() + ": " + goods1.getStorage() + " units.");
+        System.out.print(goods2.getGood() + ": " + goods2.getStorage() + " units.");
+        System.out.print(goods2.getGood() + ": " + goods3.getStorage() + " units.");
+        System.out.print(goods2.getGood() + ": " + goods4.getStorage() + " units.");
 
 
     }

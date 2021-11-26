@@ -65,6 +65,18 @@ public class Goods implements Runnable {
 
 
         while (isActive) {
+
+
+            if (storage>50) {  try {
+                Thread.sleep((long)(speed*5));
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            }
+
+
+
             this.storage++;
           //  System.out.println(good + "  in storage " + this.storage);
             try {
@@ -73,6 +85,7 @@ public class Goods implements Runnable {
                 e.printStackTrace();
             }
         }
+        System.out.println();
         System.out.println(good + " finished");
 
 

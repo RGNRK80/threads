@@ -39,10 +39,10 @@ public class Main {
         System.out.println("Main thread finished");*/
 
         // создаем товар
-        Goods goods1 = new Goods("g1",1000);
-        Goods goods2 = new Goods("g2",2000);
-        Goods goods3 = new Goods("g3",3000);
-        Goods goods4 = new Goods("g4",4000);
+        Goods goods1 = new Goods("g1",50);
+        Goods goods2 = new Goods("g2",70);
+        Goods goods3 = new Goods("g3",80);
+        Goods goods4 = new Goods("g4",90);
 
         new Thread(goods1,"Good #1").start();
         new Thread(goods2,"Good #2").start();
@@ -51,6 +51,23 @@ public class Main {
 
         Storage storage=new Storage(goods1,goods2,goods3,goods4);
         new Thread(storage,"Storage").start();
+
+        Basket basket=new Basket(goods1,goods2,goods3,goods4);
+        new  Thread(basket,"Basket").start();
+
+        try {
+            Thread.sleep((long)(10000));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        goods1.disable();
+        goods2.disable();
+        goods3.disable();
+        goods4.disable();
+        basket.disable();
+        storage.disable();
+
 
 
 
