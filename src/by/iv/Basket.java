@@ -51,13 +51,6 @@ public class Basket implements Runnable{
                    byGood4>goods4.getStorage() && isActive) {
                System.out.print("---wait");
 
-              /*  try {
-                    wait();
-                    System.out.println("----------------waiting");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
-
                try {
                     Thread.sleep((long) (200));
                 } catch (InterruptedException e) {
@@ -80,9 +73,6 @@ public class Basket implements Runnable{
             }
         }
         System.out.println("Buyer has go home");
-
-
     }
-
 
 }
