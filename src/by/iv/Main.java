@@ -5,6 +5,20 @@ public class Main {
         Thread mThread = Thread.currentThread();
         System.out.println(mThread.getName());
 
+        /*
+        Thread 15 45 23 16
+        System.out 25 18 20
+        currentThread 6 8 2
+        25  Pi 48
+        Runnable 6 8 2
+        23 6 7 2 8
+
+        wait 16 notify 32 17
+        synchronized 22 37 15
+        run 13 22 98
+        start 15 73 9 7 2 8
+        */
+
 //        Runnable child1= () -> {
 //            for (int i = 0; i <100 ; i++) {
 //                System.out.println("i'm a child");
