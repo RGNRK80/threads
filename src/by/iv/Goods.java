@@ -11,7 +11,7 @@ public class Goods implements Runnable {
     public Goods(String good, double speed) {
         this.good = good;
         this.speed = speed;
-        this.storage=0;
+        this.storage = 0;
         isActive = true;
     }
 
@@ -31,13 +31,13 @@ public class Goods implements Runnable {
         this.speed = speed;
     }
 
-    public int getStorage() {
+    public synchronized int getStorage() {
         return storage;
-    }
+    }                                  //  get
 
-    public void setStorage(int storage) {
+    public synchronized void setStorage(int storage) {
         this.storage = storage;
-    }
+    }              // set
 
     public boolean isActive() {
         return isActive;
@@ -57,42 +57,31 @@ public class Goods implements Runnable {
 
 
     @Override
-    public  void run() {
+    public void run() {
 
         String threadName = Thread.currentThread().getName();
         System.out.println(threadName + " started");
         System.out.println(good + " manufacturing is started");
 
-
         while (isActive) {
 
-
-            if (storage>50) {  try {
-                Thread.sleep((long)(speed*5));
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            if (storage > 50) {
+                try {
+                    Thread.sleep((long) (speed * 5));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-
-            }
-
-
-
-            this.storage++;
-          //  System.out.println(good + "  in storage " + this.storage);
+            setStorage(getStorage() + 1);
+            //  System.out.println(good + "  in storage " + this.storage);
             try {
-                Thread.sleep((long)(speed));
+                Thread.sleep((long) (speed));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         System.out.println();
         System.out.println(good + " finished");
-
-
-
-
-
-
 
     }
 }

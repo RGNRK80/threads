@@ -20,13 +20,11 @@ public class Storage implements Runnable {
     }
 
 
-
     @Override
     public void run() {
         String threadName = Thread.currentThread().getName();
         System.out.println(threadName + " started!!");
         System.out.println(" storage is working");
-
 
         while (isActive) {
             System.out.println();
@@ -49,7 +47,6 @@ public class Storage implements Runnable {
         System.out.print(goods2.getGood() + ": " + goods2.getStorage() + " units.");
         System.out.print(goods2.getGood() + ": " + goods3.getStorage() + " units.");
         System.out.print(goods2.getGood() + ": " + goods4.getStorage() + " units.");
-
 
     }
 }

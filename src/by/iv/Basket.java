@@ -44,30 +44,34 @@ public class Basket implements Runnable{
             System.out.print(goods2.getGood() + ": " + byGood2 + " units." );
             System.out.print(goods3.getGood() + ": " + byGood3 + " units." );
             System.out.print(goods4.getGood() + ": " + byGood4 + " units." );
-            boolean check = byGood1>goods1.getStorage() || byGood2>goods2.getStorage() || byGood3>goods3.getStorage() ||
-                    byGood4>goods4.getStorage();
+            //boolean check = byGood1>goods1.getStorage() || byGood2>goods2.getStorage() || byGood3>goods3.getStorage() ||
+             //       byGood4>goods4.getStorage();
 
-            if (check ) {
-                try {
+           while (byGood1>goods1.getStorage() || byGood2>goods2.getStorage() || byGood3>goods3.getStorage() ||
+                   byGood4>goods4.getStorage() && isActive) {
+               System.out.print("---wait");
+
+              /*  try {
                     wait();
                     System.out.println("----------------waiting");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-
-              /*  try {
-                    Thread.sleep((long) (100));
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }*/
 
-            } else {
+               try {
+                    Thread.sleep((long) (200));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
 
             goods1.setStorage(goods1.getStorage()-byGood1);
             goods2.setStorage(goods2.getStorage()-byGood2);
             goods3.setStorage(goods3.getStorage()-byGood3);
             goods4.setStorage(goods4.getStorage()-byGood4);
-            }
+                System.out.print("---done");
+
 
             try {
                 Thread.sleep((long) (100));
