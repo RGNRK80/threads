@@ -48,12 +48,18 @@ public class Basket implements Runnable{
                     byGood4>goods4.getStorage();
 
             if (check ) {
-
                 try {
-                    Thread.sleep((long) (100));
+                    wait();
+                    System.out.println("----------------waiting");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
+              /*  try {
+                    Thread.sleep((long) (100));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }*/
 
             } else {
 
